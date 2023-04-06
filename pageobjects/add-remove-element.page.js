@@ -1,6 +1,6 @@
-import Page from './home.page.js';
+import HomePage from './home.page.js';
 
-class AddRemoveElements extends Page {
+class AddRemoveElements extends HomePage {
     get pageTitle (){
         return $('//*[@id="content"]/h3');
     }

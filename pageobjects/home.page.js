@@ -1,15 +1,16 @@
-/**
-* main page object containing all methods, selectors and functionality
-* that is shared across all page objects
-*/
 export default class HomePage {
 
+    get AddRemoveElementsLink () {
+        return $('//*[@id="content"]/ul/li[2]/a');
+    }
     
-    open () {
+    open() {
+        browser.maximizeWindow();
+        browser.deleteCookies();
         return browser.url("https://the-internet.herokuapp.com/")
     }
 
-    clickOnLink(linkName){
-         linkName.click();
+    clickAddRemoveElementsLink(){
+      this.AddRemoveElementsLink.click();
     }
 }

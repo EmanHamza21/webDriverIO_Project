@@ -1,30 +1,21 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import {expect} from 'chai';
-// const { expect } = require('chai');
+import AddRemoveElements from '../pageobjects/add-remove-element.page.js';
 
-import HomePage from '../features/pageobjects/home.page.js';
-import AddRemoveElements from '../features/pageobjects/add-remove-element.page.js';
-
-const homePage = new HomePage();
-const addRemoveElementPage = new AddRemoveElements();
 
 Given(/^user navigates to the Home page$/, async () => {
-    await homePage.open()
+    await AddRemoveElements.open()
 });
 
-When(/^user clicks on (\w+)$/, async (linkName) => {
-    await linkName.replace("-"," ");
-    await clickOnLink(linkName);
+When(/^user clicks on AddRemoveElements$/, async () => {
+    AddRemoveElements.clickAddRemoveElementsLink();
 });
 
 Then(/^(\w+) title should exists$/, async (pageTitle) => {
     await pageTitle.replace("-"," ");
-    await expect(addRemoveElementPage.pageTitle).toHaveTextContaining(pageTitle);
+    await expect(AddRemoveElements.pageTitle).toHaveTextContaining(pageTitle);
 });
 
 Then(/^Add-Element button should exists$/, async (buttonName) => {
     await buttonName.replace("-"," ");
-    await expect(addRemoveElementPage.addButton).toHaveTextContaining(buttonName);
+    await expect(AddRemoveElements.addButton).toHaveTextContaining(buttonName);
 });
-
-
