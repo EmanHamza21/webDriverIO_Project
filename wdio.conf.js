@@ -112,7 +112,14 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services:[
+        ['chromedriver', {
+            logFileName: 'wdio-chromedriver.log', // default
+            outputDir: 'driver-logs', // overwrites the config.outputDir
+            args: ['--silent'],
+            chromedriverCustomPath: 'C:\\Users\\ehamzamohame\\OneDrive - DXC Production\\Documents\\chromedriver.exe'
+        }]
+      ],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -328,4 +335,31 @@ export const config = {
     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
+    onPrepare: async () => {
+        removeSync('./reports/cucumber-json/');
+        removeSync('.tmp/');
+        removeSync('./reports/cucumber-html/');
+    },
+    before: async () => {
+        global.assert = chai.assert;
+        browser.setWindowSize(2360, 1770);
+        browser.setTimeout({ pageLoad: 10000 });
+    },
+    afterScenario: () => {
+        browser.deleteCookies();
+        // browser.reloadSession();
+    },
+    onComplete: async () => {
+
+        generate(browserConfig.getReportOptions());
+
+    },
+
+    afterTest: async function (test) {
+        cucumberJson.attach(browser.takeScreenshot(), 'image/png');
+        fs.removeSync(out);
+
+    }
+
+
 }
