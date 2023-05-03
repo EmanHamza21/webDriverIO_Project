@@ -26,3 +26,5 @@ node_modules
 #test
 reports/cucumber-html
 reports/cucumber-json
+
+launch.json

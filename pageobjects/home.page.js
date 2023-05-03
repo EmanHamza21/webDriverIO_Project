@@ -13,4 +13,6 @@ export default class HomePage {
     clickAddRemoveElementsLink(){
       this.AddRemoveElementsLink.click();
     }
+
+    
 }

@@ -9,8 +9,17 @@ class AddRemoveElements extends HomePage {
         return $('//*[@id="content"]/div/button');
     }
 
+    get deleteButton(){
+        return $('//*[@id="elements"]/button');
+    }
+
     async clickAddElementButton () {
         await this.addButton.click();
+    }
+
+    async clickDeleteButton () {
+        await this.deleteButton.click();
+        
     }
 
 }
