@@ -1,8 +1,5 @@
 {
-    "Regression": [
+    "Add-remove-element": [
         "./features/**/*.feature"
-    ],
-    "LMT20822": [
-        "./features/Broker/LMT-20822/*.feature"
     ]
 }
