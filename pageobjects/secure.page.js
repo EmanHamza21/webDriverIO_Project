@@ -1,6 +1,6 @@
 
 
-import Page from './home.page.js';
+import Page from './Base.page.js';
 
 /**
  * sub page containing specific selectors and methods for a specific page
