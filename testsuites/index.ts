@@ -1,8 +1,6 @@
-let uk = require('./uk.json')
+const uk = require('./uk.json')
 const testSuiteConfig = { uk }
 
-export const getTestSuite = (market) => {
-    return testSuiteConfig[market]
+export const getTestSuite =  (market: any) => {
+    return  testSuiteConfig[market]
 }
-
-module.exports = { getTestSuite }

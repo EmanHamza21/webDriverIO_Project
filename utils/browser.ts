@@ -35,9 +35,10 @@ const localBrowserConfig = {
   }
 };
 
-export const getBrowserConfig = (browserName: string) => {
-  return localBrowserConfig[browserName];
+export const getBrowserConfig = (os: string, browserName: string) => {
+  return localBrowserConfig[os][browserName];
 };
+
 
 export const getDrivers = () => ({
   chrome: {

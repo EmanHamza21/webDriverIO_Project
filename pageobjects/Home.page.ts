@@ -5,7 +5,6 @@ class HomePage extends BasePage {
         addRemoveElementsLink: '//*[@id="content"]/ul/li[2]/a',   
     }
 
-    
     async clickAddRemoveElementsLink(){
         await this.click(this.elementSelector.addRemoveElementsLink);
     }

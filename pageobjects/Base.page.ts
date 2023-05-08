@@ -12,11 +12,8 @@ export default abstract class BasePage {
   await $(locator).click();
   }
  
-  public async addValueInputField(fieldName, value){
-    
+  public async addValueInputField(locator, value){
+    await $(locator).addValue(value);
   }
-
   
-
-    
 }

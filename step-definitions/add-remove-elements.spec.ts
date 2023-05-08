@@ -18,8 +18,8 @@ Then(/^Add Element button should exist$/,async () => {
 	await expect(addRemoveElementsPage.addElementButton).toBeExisting();
 });
 
-Then(/^delete button should (-?\w+)$/, async(existence) => {
-    if(existence == 'exist'){
+Then(/^delete button should "([^"]*)"$/, async (existence) => {
+	if(existence == 'exist'){
         await expect(addRemoveElementsPage.deleteButton).toBeExisting();
     } else{
         await expect(addRemoveElementsPage.deleteButton).not.toBeExisting();

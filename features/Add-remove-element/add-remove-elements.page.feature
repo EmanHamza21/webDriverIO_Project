@@ -7,9 +7,9 @@ Feature: Navigate to Add/Remove Elements page
   Scenario: verify navigating to add or remove elemnet page and click on add element
     Then Add Element button should exist
     When user clicks on Add Element button
-    Then delete button should exist
+    Then delete button should "exist"
 
   Scenario: verify navigating to add or remove elemnet page and click on delete button
     When user clicks on Add Element button
     And user clicks on delete
-    Then delete button should not.exist
+    Then delete button should "not.exist"
